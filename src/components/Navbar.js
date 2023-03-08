@@ -1,17 +1,17 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-function Navbar() {
-  return (
-    <div>
-     <nav className='navbar'>
-        <div className="navbar-container">
-            <Link to="/" className="navbar-log">
+import { ShoppingCart } from 'phosphor-react'
 
-            </Link>
+
+export default function Navbar() {
+  return (
+    <div  className='navbar'>
+     <nav>
+        <div className="navbar-links">
+            <Link to="/"> Shop </Link>
+            <Link to="/cart"> <ShoppingCart size= {32} /></Link>
         </div>
      </nav>
     </div>
   )
 }
-
-export default Navbar
