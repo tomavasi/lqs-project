@@ -4,10 +4,14 @@ import Navbar from './components/Navbar';
 import {Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Shop } from './pages/Shop/shop';
 import { Cart } from './pages/Cart/cart';
+import { ShopContextProvider } from './context/shop-context';
 
 export default function App() {
+
+
   return (
     <div className="App">
+      <ShopContextProvider >
       <Router>
       <Navbar />
       <Routes>
@@ -15,6 +19,7 @@ export default function App() {
         <Route path="/cart" element={<Cart/>}/>
       </Routes>
       </Router>
+      </ShopContextProvider>
     </div>
   );
 

@@ -1,24 +1,10 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Product } from './product'
+import { useFetch } from '../../useFetch'
 
 export const Shop = () => {
 
-   const [products, setProducts] = useState([]);
-
-    useEffect(
-
-        function apiData () {
-            axios
-            .get("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
-            .then(response =>{
-                setProducts(response.data);
-                });
-            
-            },[]);
-
-  
+  const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
 
   return (
     <div className="shop">
@@ -26,7 +12,7 @@ export const Shop = () => {
         <h1> Little Queer Shop</h1>
         </div> 
         <div className='products'>
-          { products.map(product =>( <Product data={product} />)) }
+          { products.map(product =>( <Product data={product} key={product.id}/>)) }
         </div>
     </div>
   )
