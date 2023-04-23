@@ -1,10 +1,14 @@
 import React from 'react'
 import { Product } from './product'
 import { useFetch } from '../../useFetch'
+import { useContext } from 'react'
+import { ShopContext } from '../../context/shop-context'
+
 
 export const Shop = () => {
+  
+  const {products} = useContext(ShopContext)
 
-  const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
 
   return (
     <div className="shop">

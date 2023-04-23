@@ -1,13 +1,13 @@
-import React, { createContext, useEffect, useState} from 'react'
-
+import React, { createContext, useState} from 'react'
 import { useFetch } from '../useFetch';
+
+
 
 export const ShopContext = createContext(null);
 
-
-
 export const ShopContextProvider = ({children}) => {
     const [cartItems,setCartItems] = useState([]);
+    const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
 
     const getQuantity = (itemId) =>{
         const quantity = cartItems.find(product =>product.id === itemId)?.amount;
@@ -16,7 +16,8 @@ export const ShopContextProvider = ({children}) => {
         }
         return quantity;
     }
-    const addToCart = (itemId) =>{
+
+  const addToCart = (itemId) =>{
         const quantity = getQuantity(itemId)
 
         if (quantity === 0) {
@@ -37,11 +38,14 @@ export const ShopContextProvider = ({children}) => {
             ))
         }
     }
+    const clearCart = (itemId) =>{
+        setCartItems  (cartItems =>
+            cartItems.filter(currentItem => {return currentItem.id !== itemId})
+            )
+    }
     const removeFromCart = (itemId) =>{
         const quantity = getQuantity(itemId)
-        quantity === 1 ? setCartItems  (cartItems =>
-            cartItems.filter(currentItem => {return currentItem.id !== itemId})
-            ) :
+        quantity === 1 ? clearCart(itemId) :
         setCartItems(
             cartItems.map(
                 product =>
@@ -49,7 +53,27 @@ export const ShopContextProvider = ({children}) => {
             ? {...product, amount: product.amount - 1} : product
         ))
     }
+    const getCurrentProducts = (itemId) =>{
 
-    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart}
+        let productsArray = products.find(product => product.id === itemId)
+
+        if (products === undefined) {
+            return undefined
+        }
+
+        return  productsArray
+
+      }
+
+    const getTotalCost = () =>{
+    let totalCost = 0;
+    cartItems.map(cartItem=>{
+        const currentProduct = getCurrentProducts(cartItem.id);
+        totalCost += currentProduct.price * cartItem.amount
+    });
+    return totalCost
+
+    }
+    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart, clearCart, products, getCurrentProducts, getTotalCost}
 return <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
 };

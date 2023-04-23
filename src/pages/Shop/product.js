@@ -3,11 +3,13 @@ import "../Shop/shop.css"
 import { ShopContext } from '../../context/shop-context'
 
 export const Product = (props) => {
-  const {cartItems, getQuantity, addToCart,removeFromCart} =useContext(ShopContext);
+
+  const { getQuantity, addToCart,removeFromCart} =useContext(ShopContext);
   const cartItemAmount = getQuantity(props.data.id)
-  console.log(cartItems)
+
+
   return (
-    <div className='shoppinglist'>
+    <div className='shoppingList'>
         <img src={props.data.image_link} alt={props.data.name}/>
         <div className='description'>
             <p>
