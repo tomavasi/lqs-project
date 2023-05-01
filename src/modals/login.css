@@ -1,0 +1,88 @@
+.signupmodal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0,0, 0.5);
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.signup-form{
+ width: 500px;
+  height: 600px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0;
+}
+.title {
+    display: inline-block;
+    text-align: center;
+}
+
+.cancelbtn{
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.inputcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    display: inline-block;
+    text-align: right;
+    width: 150px ;
+}
+input{
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid black;
+    outline: none;
+    padding: 10px;
+}
+
+.inputcontainer button{
+    display: block;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 15px;
+    width: 100px
+}
+.inputcontainer .signupbtn{
+    margin-top: 20px;
+    background-color: rgb(147, 255, 193);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.instructions{
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    color: red;
+    padding: 0.25rem;
+}
