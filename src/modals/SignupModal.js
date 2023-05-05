@@ -64,7 +64,6 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
     <section className='signup-form'>
     <button onClick={()=>setSignUpModal(false)} className='cancelbtn'><FontAwesomeIcon icon={faXmark}/></button>
     <h1 className='title'>Register</h1>
-    <div className='formcontainer'>
     <form className='inputcontainer'>
       <label htmlFor="username"/>
       <input
@@ -124,10 +123,11 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
         <FontAwesomeIcon icon={faInfoCircle} /> The passwords must match.
       </p>
       <button className='signupbtn' disabled={!validEmail || !validMatch || !validName || !validPwd ? true : false}>Sign Up</button>
+      <div className='redirect'>
       <p>Are u already registered?</p>
       <button className='loginbtn'onClick={()=>{setSignUpModal(false); setLoginModal(true)}}>Log in</button>
+      </div>
     </form>
-    </div>
     </section>
     </div>
   )

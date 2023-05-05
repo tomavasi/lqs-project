@@ -1,5 +1,5 @@
 .shopTitle {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     font-size: 40px;
   }
@@ -7,7 +7,7 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
   }
   
@@ -36,6 +36,7 @@
   }
   
   .addToCartBttn {
+    font-family: 'Ysabeau', sans-serif;
     background-color: transparent;
     border: 2px solid rgb(19, 19, 19);
     min-width: 100px;

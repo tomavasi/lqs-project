@@ -12,8 +12,8 @@
     transform: translate(-50%,-50%);
 }
 .signup-form{
- width: 500px;
-  height: 600px;
+ width: 450px;
+  height: auto;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: white;
@@ -23,13 +23,13 @@
   padding: 20px;
 }
 
-.formcontainer{
+/* .formcontainer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 20px 0;
-}
+} */
 .title {
     display: inline-block;
     text-align: center;
@@ -46,13 +46,11 @@
 .inputcontainer{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+    padding: 20px 30px;
 }
-label {
-    display: inline-block;
-    text-align: right;
-    width: 150px ;
-}
+
 input{
     display: inline-block;
     width: 100%;
@@ -62,27 +60,59 @@ input{
     padding: 10px;
 }
 
-.inputcontainer button{
+.inputcontainer .signupbtn{
     display: block;
     margin: 0 auto;
-    border: 1px solid black;
     padding: 15px;
+    border: none;
     border-radius: 15px;
-    width: 100px
+    width: 200px;
+    margin-top: 30px;
+    background-color:  rgba(157, 105, 112,0.8);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
 }
-.inputcontainer .signupbtn{
-    margin-top: 20px;
-    background-color: rgb(147, 255, 193);
+.signupbtn:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.signupbtn:active{
+    background-color: rgb(157, 105, 112);
+    box-shadow: none;
+}
+
+.redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.redirect button{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    cursor: pointer;
+    height: 20px;
+    padding: 0;
+    margin-left: 10px;
 }
 
 .hide {
     display: none;
 }
 
+
 .instructions{
+    align-self: self-start;
     font-size: 0.75rem;
     border-radius: 0.5rem;
     color: red;
     padding: 0.25rem;
 }
+
