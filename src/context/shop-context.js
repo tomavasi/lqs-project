@@ -8,6 +8,8 @@ export const ShopContext = createContext(null);
 export const ShopContextProvider = ({children}) => {
     const [cartItems,setCartItems] = useState([]);
     const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
+    const [searchResults,setSearchResults] = useState([]);
+
 
     const getQuantity = (itemId) =>{
         const quantity = cartItems.find(product =>product.id === itemId)?.amount;
@@ -74,6 +76,6 @@ export const ShopContextProvider = ({children}) => {
     return totalCost
 
     }
-    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart, clearCart, products, getCurrentProducts, getTotalCost}
+    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart, clearCart, products, getCurrentProducts, getTotalCost, setSearchResults,searchResults }
 return <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
 };

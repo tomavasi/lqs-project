@@ -5,9 +5,8 @@ import { ShopContext } from '../../context/shop-context'
 
 
 export const Shop = () => {
-
-  const {products} = useContext(ShopContext)
-
+  const {searchResults, products} = useContext(ShopContext);
+  console.log(searchResults)
 
   return (
     <div className="shop">
@@ -15,7 +14,7 @@ export const Shop = () => {
         <h1> Products</h1>
         </div>
         <div className='products'>
-          { products.map(product =>( <div className="product"><Product data={product} key={product.id}/></div>)) }
+          { searchResults.length !==0 ? searchResults?.map(product =>( <div className="product"><Product data={product} key={product.id}/></div>)) : products?.map(product =>( <div className="product"><Product data={product} key={product.id}/></div>)) }
         </div>
     </div>
   )

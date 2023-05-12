@@ -6,49 +6,90 @@
   .products {
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
   }
   
   .product {
-    border-radius: 15px;
-    width: 300px;
-    height: 350px;
-    margin: 100px;
+    padding: 10px;
+    width: 330px;
+    height: 360px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  
-  .product img {
-    width: 200px;
+
+  .productimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+  .product:hover{
+    border: solid 1px black;
+    transition: 10s;
+    }
   
+  .productbox:hover{
+    /* border: solid 1px black; */
+    /* padding: 2px; */
+    
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  }
+
   .product .description {
-    text-align: center;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: rgb(232, 234, 235);
+    border-radius: 10px; */
+    width: 330px;
+    height: 144px;
   }
-  
-  .product:hover {
+
+  .description p{
+    font-weight: bold;
+  }
+
+  .description .productname{
+    font-size: 18px;
+  }
+  .description .productprice{
+    font-size: 17px;
+  }
+  /* .product:hover {
     transition: 0.3s ease-in;
     cursor: pointer;
+  } */
+  .productbtn{
+    display: flex;
+    justify-content: center;
+    width: 330px;
+
   }
-  
   .addToCartBttn {
-    font-family: 'Ysabeau', sans-serif;
-    background-color: transparent;
-    border: 2px solid rgb(19, 19, 19);
+    background-color: black;
+    color: white;
+    font-weight: bold ;
+    /* border: 2px solid rgb(19, 19, 19); */
     min-width: 100px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 15px;
+    border-radius: 5px;
+  }
+  .addToCartBttn:hover{
+    cursor: pointer;
   }
   
-  .addToCartBttn:hover {
-    background-color: rgb(19, 19, 19);
-    color: white;
+  .addToCartBttn:active {
+    background-color:rgb(157, 105, 112);;
+    color: black;
     cursor: pointer;
+    border: none;
   }

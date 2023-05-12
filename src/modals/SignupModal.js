@@ -60,8 +60,8 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
 
     if (!signUpModal) return null
   return (
-    <div className='signupmodal'>
-    <section className='signup-form'>
+    <div onClick={()=>setSignUpModal(false)} className='signupmodal'>
+    <section onClick={e=>e.stopPropagation()} className='signup-form'>
     <button onClick={()=>setSignUpModal(false)} className='cancelbtn'><FontAwesomeIcon icon={faXmark}/></button>
     <h1 className='title'>Register</h1>
     <form className='inputcontainer'>
@@ -122,7 +122,7 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
       <p className={matchFocus && !validMatch? "instructions" : "hide"}>
         <FontAwesomeIcon icon={faInfoCircle} /> The passwords must match.
       </p>
-      <button className='signupbtn' disabled={!validEmail || !validMatch || !validName || !validPwd ? true : false}>Sign Up</button>
+      <button className='signupbtnmain' disabled={!validEmail || !validMatch || !validName || !validPwd ? true : false}>Sign Up</button>
       <div className='redirect'>
       <p>Are u already registered?</p>
       <button className='loginbtn'onClick={()=>{setSignUpModal(false); setLoginModal(true)}}>Log in</button>
