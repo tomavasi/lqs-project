@@ -1,17 +1,21 @@
 import React from 'react'
-import {faCheck, faTimes, faInfoCircle, faXmark} from "@fortawesome/free-solid-svg-icons"
+import {faXmark} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./login.css"
 
 const LoginModal = ({loginModal,setLoginModal, setSignUpModal}) => {
     if (!loginModal) return null
+
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+    }
   return (
     <div onClick={()=>setLoginModal(false)} className='loginmodal'>
     <section onClick={e=>e.stopPropagation()}className='login-form'>
     <button onClick={()=>setLoginModal(false)} className='cancelbtn'><FontAwesomeIcon icon={faXmark}/></button>
     <h1 className='title'>Log in</h1>
     <div className='formcontainer'>
-    <form className='inputcontainer'>
+    <form className='inputcontainer' onSubmit={handleSubmit}>
       <label htmlFor="username"/>
       <input
       type="text"

@@ -1,36 +1,42 @@
 import React from 'react'
 import { useContext } from 'react'
 import { ShopContext } from '../../context/shop-context'
+import "./cart.css"
+import {faPlus, faMinus, faTrash} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+export const CartItem = ({amount, data}) => {
 
-export const CartItem = (props) => {
-
-   const {removeFromCart, clearCart} = useContext(ShopContext);
-
+   const {removeFromCart, clearCart, addToCart} = useContext(ShopContext);
 
     return (
 
     <div className='shoppingList'>
-        <img src={props.data?.image_link} alt={props.data?.name}/>
+        <img src={data?.image_link} alt={data?.name} className='cart-productimg'/>
         <div className='description'>
-            <p>
-                {props.data?.name}
+            <p className='cart-productname'>
+                {data?.name}
             </p>
-            <p>
-                {props.data?.price}
-            </p>
-            <p>
-                {props.amount}
-            </p>
-            <p>
-                {props.amount * props.data?.price}
-            </p>
-            <button onClick={()=> removeFromCart(props.data?.id)}>
-                Remove Item
+            <div className='cartbtns'>
+            <button onClick={()=> removeFromCart(data?.id)}>
+                <FontAwesomeIcon icon={faMinus}/>
             </button>
-            <button onClick={()=> clearCart(props.data?.id)}>
-                Clear item
+            <p className='cart-productamount'>
+                {amount}
+            </p>
+            <button onClick={()=> addToCart(data?.id)}>
+            <FontAwesomeIcon icon={faPlus}/>
+            </button>
+            </div>
+        </div>
+        <div className='cart-producttotal'>
+            <p>
+                {(amount * data?.price).toFixed(2)} €
+            </p>
+            <button onClick={()=> clearCart(data?.id)}>
+                <FontAwesomeIcon icon={faTrash}/>
             </button>
         </div>
-  </div>)
+    </div>
+)
 }

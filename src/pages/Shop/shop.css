@@ -1,10 +1,10 @@
 .shopTitle {
-    margin-top: 50px;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
   }
   .products {
-    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
     height: auto;
     display: flex;
     justify-content: center;
@@ -29,8 +29,9 @@
     align-items: center;
   }
   .product:hover{
-    border: solid 1px black;
-    transition: 10s;
+    border: solid 1px;
+    border-color: rgb(184, 182, 182);
+    box-shadow: rgba(100,100,111,0.2) 0 7px 29px 0;
     }
   
   .productbox:hover{
@@ -56,10 +57,10 @@
   }
 
   .description .productname{
-    font-size: 18px;
+    font-size: 16px;
   }
   .description .productprice{
-    font-size: 17px;
+    font-size: 18px;
   }
   /* .product:hover {
     transition: 0.3s ease-in;
@@ -93,3 +94,9 @@
     cursor: pointer;
     border: none;
   }
+/* 
+  @media (max-width:750px){
+    .products{
+      max-width: 50%;
+    }
+  } */

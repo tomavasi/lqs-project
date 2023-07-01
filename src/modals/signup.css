@@ -1,6 +1,6 @@
 .signupmodal{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0,0, 0.5);
     display: flex;
     position: fixed;
@@ -12,7 +12,7 @@
     transform: translate(-50%,-50%);
 }
 .signup-form{
- width: 450px;
+ max-width: 400px;
   height: auto;
   box-sizing: border-box;
   border-radius: 12px;
@@ -126,3 +126,4 @@ input::placeholder{
         height: 100vh;
     }
 }
+

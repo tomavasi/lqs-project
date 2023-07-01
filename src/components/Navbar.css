@@ -1,16 +1,17 @@
 .navbar{
-    width: 100%;
+    max-width:100%;
     height: 60px;
+    border: none;
+    outline: none;
     background-color:rgb(232, 234, 235);
-    top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding-right: 30px;
+    z-index: 3;
   }
 
 .navbar1{
-  padding-bottom: 10px;
   padding-top: 10px;
+
 }
 .searchbar{
   display: inline-block;
@@ -27,12 +28,14 @@
   border-radius: 60px;
 }
 .searchbarform input{
+  padding: 0 20px;
   height: 20px;
   border:none;
   outline: none;
   background: transparent;
 }
 .searchbar button{
+  padding: 0 30px;
   width: 40px;
   height: 40px;
   outline:none;
@@ -46,14 +49,11 @@
     align-items: center;
     padding-left: 30px;
     padding-bottom: 8px;
-  }
-
-.navbar-logo a{
-    text-decoration: none;
     color: black;
     font-size: 40px;
     font-weight: bold;
   }
+
 .btns{
     display: flex;
     justify-content: flex-end;
@@ -77,22 +77,14 @@
     font-size: 20px;
   }
 
-  .badgecontainer{
+  .badge{
     position: absolute;
-    width: 100%;
+    top:50%;
+    left:80%;
+    border-radius: 50%;
     width: 15px;
     height: 15px;
     background-color: black;
-    border-radius: 50%;
-    top: 60%;
-    left: 80%;
-  }
-
-  .badge{
-    position: absolute;
-    top:-15%;
-    width: 15px;
-    height: 15px;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -124,9 +116,12 @@
  }
 
  .navbar2{
+  position: sticky;
+  top: -1px;
   display: flex;
   justify-content: center;
   height: 30px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 .navbar-links {
@@ -139,7 +134,7 @@
   display: inline-block;
   position: relative;
   text-decoration: none;
-  padding: 8px;
+  padding: 10px;
   color: black;
   font-size: 25px;
 }
@@ -149,15 +144,157 @@
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 2px;
+  height: 3px;
   bottom: 0;
   left: 0;
   background-color: rgba(157, 105, 112,0.8);
   transform-origin: bottom right;
-  transition: transform 0.20s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .navbar-links a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.sidebar{
+  display: none;
+}
+
+@media (max-width: 740px){
+  .navbar{
+    display: none;
+  }
+
+.sidebar{
+  display: block;
+  max-width: 100%;
+}
+.sidebar1{
+  position: sticky;
+  top:0;
+  z-index: 2;
+  height: 70px;
+  border: none;
+  outline: none;
+  background-color:rgb(232, 234, 235);
+  padding: 1rem;
+
+}
+.row1{
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.burgermenu{
+  margin-left: 1.25rem;
+  margin-right: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.sidebar-logo{
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sidebar-cart{
+  margin-right: 1.25rem;
+  align-items: center;
+  position: relative;
+}
+.sidebar-cart a{
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.sidebar .badge{
+  position: absolute;
+  top:50%;
+  left:80%;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .searchbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.sidebar-links .modalloginbtn{
+  padding: 0;
+}
+
+.Xicon{
+  font-size: 1.25rem;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.sidebar2container{
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left:-100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.sidebar2container.active{
+  left: 0;
+  overflow-y: hidden;
+}
+
+.sidebar2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 1rem;
+  width: 60%;
+  height: 100vh;
+  position: fixed;
+  left : -100%;
+  z-index: 4;
+  top:0px;
+  background-color:rgb(232, 234, 235);
+  margin-top: 0;
+  transition: all 0.4s;
+}
+
+.sidebar2.active{
+  left:0%;
+  transition: 0.5s;
+}
+
+.sidebar2 .sidebar-links{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  padding-left: 2.25rem;
+  transition: all 0.4s;
+}
+
+.sidebar-links a{
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  color: black;
+  font-size: 1.25rem;
+}
+
 }

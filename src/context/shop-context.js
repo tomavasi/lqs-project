@@ -1,15 +1,12 @@
 import React, { createContext, useState} from 'react'
 import { useFetch } from '../useFetch';
 
-
-
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = ({children}) => {
     const [cartItems,setCartItems] = useState([]);
     const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
     const [searchResults,setSearchResults] = useState([]);
-
 
     const getQuantity = (itemId) =>{
         const quantity = cartItems.find(product =>product.id === itemId)?.amount;
@@ -69,13 +66,21 @@ export const ShopContextProvider = ({children}) => {
 
     const getTotalCost = () =>{
     let totalCost = 0;
-    cartItems.map(cartItem=>{
+    cartItems.map(cartItem=> {
         const currentProduct = getCurrentProducts(cartItem.id);
         totalCost += currentProduct.price * cartItem.amount
     });
     return totalCost
 
     }
-    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart, clearCart, products, getCurrentProducts, getTotalCost, setSearchResults,searchResults }
+
+    const getTotalAmount = () =>{
+        let totalAmount = 0;
+        cartItems.map(cartItem=>{
+            totalAmount += cartItem.amount
+        });
+        return totalAmount
+        }
+    const contextValue = {cartItems, getQuantity, addToCart, removeFromCart, clearCart, products, getCurrentProducts, getTotalCost, setSearchResults,searchResults, getTotalAmount }
 return <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
 };

@@ -5,7 +5,7 @@ export const useFetch = (url) => {
     const [products, setProducts] = useState([]);
     const [loading,setLoading]= useState (false);
     const [error,setError] = useState (null);
-  
+
     useEffect(()=>{
         setLoading (true);
         axios.get(url).then(response =>{
@@ -16,6 +16,6 @@ export const useFetch = (url) => {
                 setLoading(false);
             });
             },[url]);
-  
+
     return {products, loading, error};
 }

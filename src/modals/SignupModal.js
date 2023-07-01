@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRef, useState, useEffect} from 'react';
-import {faCheck, faTimes, faInfoCircle, faXmark} from "@fortawesome/free-solid-svg-icons"
+import { faInfoCircle, faXmark} from "@fortawesome/free-solid-svg-icons"
 import "./signup.css" ;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,7 +9,6 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
-    const errorRef = useRef();
     const userRef = useRef();
 
     const [user,setUser] = useState("");
@@ -27,9 +26,6 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
     const [email,setEmail] = useState("");
     const [validEmail, setValidEmail] = useState (false);
     const [emailFocus, setEmailFocus] = useState(false);
-
-    const [errMsg, setErrMsg] = useState("");
-    const [success,setSuccess] = useState(false);
 
     useEffect (()=>{
       const result = USER_REGEX.test(user);
@@ -53,10 +49,6 @@ const SignupModal = ({signUpModal,setSignUpModal,setLoginModal}) => {
       console.log(email);
       setValidEmail(result);
     },[email])
-
-    useEffect (()=>{
-      setErrMsg('');
-    },[user,pwd,matchPwd,email])
 
     if (!signUpModal) return null
   return (
