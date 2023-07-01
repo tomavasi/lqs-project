@@ -8,8 +8,7 @@ import { ShopContextProvider } from './context/shop-context';
 import { useState } from 'react'
 import LoginModal from './modals/LoginModal'
 import SignupModal from './modals/SignupModal'
-
-
+import { AboutUs } from './pages/AboutUs';
 
 
 export default function App() {
@@ -27,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Shop/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/about-us" element={<AboutUs/>}/>
       </Routes>
       </main>
       </Router>
