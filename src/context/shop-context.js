@@ -5,7 +5,7 @@ export const ShopContext = createContext(null);
 
 export const ShopContextProvider = ({children}) => {
     const [cartItems,setCartItems] = useState([]);
-    const {products} = useFetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
+    const {products} = useFetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
     const [searchResults,setSearchResults] = useState([]);
 
     const getQuantity = (itemId) =>{
