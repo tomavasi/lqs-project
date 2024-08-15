@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'core-js/stable/index.js'
+import 'regenerator-runtime/runtime.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

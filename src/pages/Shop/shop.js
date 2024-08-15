@@ -13,7 +13,7 @@ export const Shop = () => {
         <h1> Products</h1>
         </div>
         <div className='products'>
-         {products.filter(product=>product.name.toLowerCase().includes(searchResults)).map(product =>( <div className="product"><Product product={product} key={product.id}/></div>)) }
+         {products.filter(product=>product.name.toLowerCase().includes(searchResults)).map(product =>( <div className="product" key={product.id}><Product product={product} /></div>)) }
         </div>
     </div>
   )
